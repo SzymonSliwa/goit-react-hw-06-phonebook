@@ -10,9 +10,9 @@ const defaultContacts = [
 ];
 
 const currentContacts =
-  JSON.parse(localStorage.getItem('contacts')) === null
+  JSON.parse(localStorage.getItem('contactsStorage')) === null
     ? defaultContacts
-    : JSON.parse(localStorage.getItem('contacts'));
+    : JSON.parse(localStorage.getItem('contactsStorage'));
 
 const initialState = {
   contacts: {

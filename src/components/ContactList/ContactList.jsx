@@ -6,32 +6,12 @@ export const ContactList = () => {
   const list = useSelector(selectContacts);
   const filter = useSelector(selectContactsFilter);
   const dispatch = useDispatch();
-  console.log(list);
-  console.log(list.name);
-
-  const check = list.filter(ev => ev.name.includes(filter));
-
-  console.log(check);
-
-  const check2 = list.map(c => c.name);
-  console.log(check2);
-
-  //const getFilteredContacts = () => {
-  //   if (!filter) {
-  //     return list;
-  //   }
-  //    return list.filter(contact =>
-  //    contact.name.toLowerCase().includes(filter.toLowerCase())
-  //  );
-  // };
 
   return (
     <div>
       <ul>
         {list
-          .filter(ev =>
-            ev.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
-          )
+          .filter(ev => ev.name.toLowerCase().includes(filter.toLowerCase()))
           .map(contact => {
             return (
               <li className="contactItem" key={contact.id}>
@@ -51,4 +31,13 @@ export const ContactList = () => {
   );
 };
 
-//.filter(ev => ev.name.toLowerCase().includes(filter.toLowerCase()))
+//const getFilteredContacts = () => {
+//  if (!filter) {
+//    return list;
+//  }
+//  return list.filter(contact =>
+//    contact.name.toLowerCase().includes(filter.toLowerCase())
+//  );
+//};
+
+//const filteredContacts = getFilteredContacts();

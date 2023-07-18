@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 
 const App = () => {
   // const [contacts] = useState([
@@ -14,7 +14,7 @@ const App = () => {
   //   { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   // ]);
 
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   useEffect(() => {
     localStorage.setItem('contactsStorage', JSON.stringify(contacts));

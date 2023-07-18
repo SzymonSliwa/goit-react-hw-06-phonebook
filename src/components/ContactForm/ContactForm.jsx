@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 
 import { useDispatch } from 'react-redux';
-import { addContactAction } from 'redux/actions';
+import { addContact } from 'redux/contactsSlice';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -14,7 +14,7 @@ export const ContactForm = () => {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    dispatch(addContactAction({ name, number }));
+    dispatch(addContact({ name, number }));
     resetForm();
   };
 

@@ -1,12 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { filterAction } from 'redux/actions';
-import { getContactsFilter } from 'redux/selectors';
+//import { filterAction } from 'redux/actions';
+import { selectContactsFilter } from 'redux/selectors';
+import { filterContact } from '../../redux/filterSlice';
 
 export const Filter = () => {
-  const filter = useSelector(getContactsFilter);
+  const filter = useSelector(selectContactsFilter);
   const dispatch = useDispatch();
   const filterContacts = ev => {
-    dispatch(filterAction(ev.currentTarget.value));
+    dispatch(filterContact(ev.currentTarget.value));
   };
 
   return (
